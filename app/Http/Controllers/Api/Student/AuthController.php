@@ -47,4 +47,14 @@ class AuthController extends Controller
         return response()->json(Student::get(['image','name_en','name_ar','student_id','units']));
 
     }
+/*
+    public function requestPage()
+    {
+        return response()->json(Student::get(['image','name_en','name_ar','student_id','email']));
+        return response()->json(Student::get);
+    }
+*/
+   
+
+
 }
