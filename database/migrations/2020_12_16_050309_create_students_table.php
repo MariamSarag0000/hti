@@ -15,6 +15,8 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+
             $table->string('name_en');
             $table->string('name_ar');
             $table->string('email')->unique();
@@ -28,8 +30,9 @@ class CreateStudentsTable extends Migration
             $table->date('birthdate');
             $table->enum('status', ['student', 'alumni'])->default('student');
             $table->unsignedBigInteger('department_id');
+
+
             $table->foreign('department_id')->references('id')->on('departments');
-            $table->timestamps();
         });
     }
 
