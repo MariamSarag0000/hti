@@ -15,6 +15,8 @@ use Illuminate\Support\Str;
 
 class ForgotPasswordController extends Controller
 {
+    /*
+
     public function sendEmail(Request $request){
         if(!$this->validateEmail($request->email)){
             return $this->failedResponse();
@@ -68,5 +70,35 @@ class ForgotPasswordController extends Controller
         return response()->json([
             'data' => 'Reset Email is send successfully, please check your inbox.'
         ], Response::HTTP_OK);
+    } */
+
+
+
+    // The new one:
+    public function forgot(){
+        $credentials=request()->validate(['email'=>'required|email']);
+        Password::sendResetLink($credentials);
+        return response()->json('Reset password link sent to your email');
     }
+
+    public function reset(){
+        request()->validate()([
+            'email'=>'required|email',
+            'password'=>'required|sring|max:25|confirmed',
+            'token'=>'required|string'
+        ]);
+
+        $email_password_status=Password::reset($credentials, function ($user,$password){    //it is the new password 
+            $user->password=$password;
+            $user->save();
+        });
+
+
+
+
+    }
+   
+
+
+
 }
