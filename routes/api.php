@@ -20,14 +20,17 @@ Route::post('/auth/login', 'Student\AuthController@login');
 
 
 Route::middleware('api')->group(function(){
-    Route::post('/sendPasswordResetLink', 'Api\Student\ForgotPasswordController@sendEmail');
-});
+   // Route::post('/sendPasswordResetLink', 'Api\Student\ForgotPasswordController@sendEmail');
+   Route::post('/password/email', 'Student\ForgotPasswordController@forgot');
+   Route::post('/password/reset', 'Student\ForgotPasswordController@reset');
+});  
 
 Route::middleware('auth:sanctum')->group(function(){
 	Route::get('/auth/me', 'Student\AuthController@me');
 	Route::post('/auth/logout', 'Student\AuthController@logout');
 	Route::get('/auth/printout', 'Student\AuthController@print');
 	//Route::get('/auth/requestPage', 'Student\AuthController@requestPage');
+	
 
 });
 
