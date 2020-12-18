@@ -19,6 +19,8 @@ $factory->define(Student::class, function (Faker $faker) {
     	'address'    	=> $faker->address,
     	'birthdate'  	=> $faker->date(),
     	'status'        => $faker->randomElement(['student', 'alumni']),
-    	'department_id' => $departmentId  
+		'department_id' => $departmentId  
+		
+		
     ];
 });
