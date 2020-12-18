@@ -14,6 +14,10 @@ use Illuminate\Support\Str;
 | This directory should contain each of the model factory definitions for
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
+
+In this above code, we are defining a factory for App\User::class model and passing it as the first parameter. 
+Then we have a callback function that defines the data and returns it in an array. Array keys are the name of the columns of the users table. 
+We are using Faker which is a very useful library for creating fake data. Here’s a description of all the faker properties used.
 |
 */
 
