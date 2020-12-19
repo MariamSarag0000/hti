@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function card($id){
+        $studentMaterial=\App\Students::find($id)->with('material')->get();
+        dd($studentMaterial->toArray());
+        echo 'hi';
+
+    }
 }
