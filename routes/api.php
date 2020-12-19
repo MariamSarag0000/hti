@@ -16,19 +16,21 @@ use Illuminate\Support\Facades\Password;
 |
 */
 
+
+//login:
 Route::post('/auth/login', 'Student\AuthController@login');
 
-
 Route::middleware('api')->group(function(){
-   // Route::post('/sendPasswordResetLink', 'Api\Student\ForgotPasswordController@sendEmail');
+	//change password:
    Route::post('/password/email', 'Student\ForgotPasswordController@forgot');
    Route::post('/password/reset', 'Student\ForgotPasswordController@reset');
 });  
 
 Route::middleware('auth:sanctum')->group(function(){
-	Route::get('/auth/me', 'Student\AuthController@me');
-	Route::post('/auth/logout', 'Student\AuthController@logout');
-	Route::get('/auth/printout', 'Student\AuthController@print');
+	Route::get('/auth/me', 'Student\AuthController@me');   //profile
+	Route::post('/auth/logout', 'Student\AuthController@logout');   //logout
+	Route::get('/auth/printout', 'Student\AuthController@print');   //print out
+
 	//Route::get('/auth/requestPage', 'Student\AuthController@requestPage');
 	
 
