@@ -30,4 +30,9 @@ class Student extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function material(){
+        return $this->belongsToMany('\App\Material', 'students_materials', 'student_id', 'material_code');
+
+    }
 }
