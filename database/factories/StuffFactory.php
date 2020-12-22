@@ -12,7 +12,6 @@ $factory->define(Stuff::class, function (Faker $faker) {
     	'email'      	=> $faker->unique()->safeEmail,
     	'password'      => bCrypt(123456),
     	'phone'      	=> $faker->e164PhoneNumber,
-    	'stuff_id' 	    => $faker->numberBetween(0, 999),  	
     	'address'    	=> $faker->address,
         'birthdate'  	=> $faker->date(),
         'status'        => $faker->randomElement(['professor', 'assistant']),

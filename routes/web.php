@@ -20,4 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/registrationCard/{id}', 'HomeController@card');
+/*
+Route::get('/registrationCard', function (){
+    auth()->loginUsingId(1);
+        $studentMaterial=\App\Student::Where('id',auth()->students()->id)->with('material')->get();
+        dd($studentMaterial->toArray());
+        echo 'hi';
+}
+*/
