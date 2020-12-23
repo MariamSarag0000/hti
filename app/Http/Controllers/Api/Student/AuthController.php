@@ -10,7 +10,7 @@ use App\Student;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $request)   //login
     {
         $request->validate([
             'student_id' => 'required',
@@ -30,12 +30,12 @@ class AuthController extends Controller
         return response()->json(['token' => $token]);
     }
 
-    public function me()
+    public function me()    //profile
     {
         return auth()->user(); 
     }
     
-    public function logout(Request $request)
+    public function logout(Request $request)   //logout
     {
         $request->user()->currentAccessToken()->delete();
 
